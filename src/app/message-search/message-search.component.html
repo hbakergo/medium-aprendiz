@@ -1,0 +1,29 @@
+<div class="container s12">
+  <div class="col s12 l11 m5">
+    <div class="card-panel" [style.backgroundColor] = "'white'">
+      <span class="black-text">
+        <h6 class="my-font-purple"><b>Buscar mensagens:</b></h6>
+        <form class="col s12" (submit)="onSubmit()">
+          <div class="row">
+            <div class="input-field col s12">
+              <input
+                name="input-sentence"
+                type="text"
+                [(ngModel)]="this.sentence"
+              />
+              <label for="input-sentence">Contendo qual texto?</label>
+            </div>
+
+          </div>
+          <button
+            class="btn waves-effect waves-purple my-menu darken-4"
+            type="submit"
+          >
+            Buscar mensagens
+            <i class="material-icons right">send</i>
+          </button>
+        </form>
+      </span>
+    </div>
+  </div>
+</div>

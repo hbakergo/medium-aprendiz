@@ -1,0 +1,41 @@
+<!-- menu -->
+<!-- o navbar-fixed garante que a barra ficará fixa, sempre visível conforme navegamos-->
+<div class="navbar-fixed" style="z-index: 1001 !important">
+  <nav>
+    <!-- ./styles.css/my-menu => contém a cor do menu.component-->
+    <div class="nav-wrapper my-menu accent-4">
+      <div class="container">
+        <a href="#" class="flow-text"><b>Médium Aprendiz</b></a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+          <i class="material-icons">menu</i>
+        </a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="#" class="flow-text">Home</a></li>
+          <li><a href="mensagens.html" class="flow-text">Mensagens</a></li>
+          <li><a href="medium.html" class="flow-text">Médium</a></li>
+          <li><a href="contato.html" class="flow-text">Contato</a></li>
+          <li><a href="login.html" class="flow-text">Login</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <ul class="sidenav my-menu" id="mobile-demo" #mobile>
+    <div class="row">
+      <div class="col s8 offset-s2">
+        <div class="center">
+          <img
+            class="responsive-img"
+            src="./assets/resources/images/logo-white.png"
+          />
+        </div>
+      </div>
+    </div>
+      <li><a href="#" class="flow-text white-text">Home</a></li>
+      <li><a href="mensagens.html" class="flow-text white-text">Mensagens</a></li>
+      <li><a href="medium.html" class="flow-text white-text">Médium</a></li>
+      <li><a href="contato.html" class="flow-text white-text">Contato</a></li>
+      <li><a href="login.html" class="flow-text white-text">Login</a></li>
+  </ul>
+</div>
+<!-- fim menu -->
