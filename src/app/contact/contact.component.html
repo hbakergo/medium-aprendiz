@@ -1,0 +1,74 @@
+<div class="container">
+  <div class="row" style="margin-top: 20px">
+    <h3>Entre em contato:</h3>
+    <hr/>
+    <div class="col s12">
+      <!--
+        abaixo temos os atributos nativos do HTML => id e class
+
+        e também temos um property binding que é o [[hidden]="!this.depositMessage"]
+        onde ele age de acordo com o conteúdo da mensagem, ou seja, se for vazia
+        ele retorna um false, e se for positiva ele retorna true por causa do !
+
+        e após isso temos um class binding que é referente a classe CSS do
+        materialize que vai mostrar o fundo vermelho caso seja inválido e em
+        azul caso seja válido
+      -->
+      <div
+        id="div-deposit-message"
+        class="card-panel white-text"
+        [hidden]="!this.contactMessage"
+        [class.red]="this.contactInvalid"
+        [class.purple]="!this.contactInvalid"
+      >
+      <!--
+        aqui na mensagem usamos também a interpolação para apresentar o texto
+        da mensagem, se for de sucesso ou não
+      -->
+      {{ this.contactMessage }}
+      </div>
+    </div>
+    <form class="col s12" (submit)="onSubmit()">
+      <div class="row">
+        <div class="input-field col s12">
+          <input
+            id="input-name"
+            name="input-name"
+            type="text"
+            [(ngModel)]="this.name"
+          />
+          <label for="input-name">Nome</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input
+            id="input-email"
+            name="input-email"
+            type="email"
+            [(ngModel)]="this.email"
+            class="validate"
+          />
+          <label for="input-email">Email</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea
+            id="textarea-message"
+            class="materialize-textarea"
+            name="textarea-message"
+            [(ngModel)]="this.message"></textarea>
+          <label for="textarea-message">Mensagem</label>
+        </div>
+      </div>
+      <button
+        class="btn waves-effect waves-purple my-menu darken-4"
+        type="submit"
+      >
+        Enviar
+        <i class="material-icons right">send</i>
+      </button>
+    </form>
+  </div>
+</div>

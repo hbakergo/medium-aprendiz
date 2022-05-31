@@ -1,0 +1,14 @@
+<div class="container">
+  <p *ngIf="authorShip">
+    Parâmetros recebidos quando clica no botão buscar da página home, foi usado
+    o author como exemplo para fazer a passagem de parâmetros<br/>
+    Autor: <b> {{ authorShip }} </b><br/>
+    <br/>
+    Os parâmetros acima serão usados para filtrar as mensagens abaixo em
+    implementações futuras
+  </p>
+  <br/>
+  <h5>Mensagens:</h5>
+
+  <app-messages-list [show]="showTitleLastMessages"></app-messages-list>
+</div>

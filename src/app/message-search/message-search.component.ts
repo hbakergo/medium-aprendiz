@@ -19,21 +19,6 @@ export class MessageSearchComponent implements OnInit {
   }
 
   onSubmit(){
-    this.search = '';
-
-    if(this.sentence){
-      this.search += this.sentence;
-
-      alert(`A busca por mensagens contendo o texto:
-          ${this.search}
-    será realizada nesse evento após a implementação
-    da API que irá simular o back-end!`);
-
-    } else{
-      alert("Informe o texto a buscar na mensagem!");
-    }
-
-    this.sentence = '';
   }
 
 }

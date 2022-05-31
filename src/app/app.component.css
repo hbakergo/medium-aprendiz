@@ -1,0 +1,18 @@
+/*
+  Fixa o rodapé
+*/
+
+/* Ao invés do 'body' foi usado o 'host' que o host refere-se ao próprio
+   componente, então para definir um estilo ao próprio componente para ele ser
+   autocontido, usamos essa pseudoclasse host
+*/
+:host{
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main{
+  flex: 1 0 auto;
+  padding: 0px !important;
+}

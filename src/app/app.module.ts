@@ -9,6 +9,13 @@ import { BemVindoAdmComponent } from './bem-vindo-adm/bem-vindo-adm.component';
 import { MenuComponent } from './shared/menu/menu.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { MessageSearchComponent } from './message-search/message-search.component';
+import { LandPageComponent } from './land-page/land-page.component';
+import { MessagesListComponent } from './messages-list/messages-list.component';
+import { MessageSortComponent } from './message-sort/message-sort.component';
+import { ContactComponent } from './contact/contact.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { MediumComponent } from './medium/medium.component';
+import { MessagesPageComponent } from './messages-page/messages-page.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +24,14 @@ import { MessageSearchComponent } from './message-search/message-search.componen
     BemVindoAdmComponent,
     MenuComponent,
     FooterComponent,
-    MessageSearchComponent
+    MessageSearchComponent,
+    LandPageComponent,
+    MessagesListComponent,
+    MessageSortComponent,
+    ContactComponent,
+    PageNotFoundComponent,
+    MediumComponent,
+    MessagesPageComponent
   ],
   imports: [
     BrowserModule,
