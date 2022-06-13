@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row" style="margin-top: 30px">
+    <button
+        class="btn waves-effect waves-green my-button-green darken-4"
+        type="submit"
+        [routerLink]="['/a/novo-tema']"
+      >
+        Novo tema
+      </button>
+  </div>
+
+  <div *ngFor="let theme of themes">
+    <div class="row">
+        <div class="card-panel" [style.backgroundColor] = "'white'">
+          <span class="black-text">
+            <b>Tema: {{ theme.name }}</b>
+          </span>
+            <br/><br/>
+            <table>
+              <tr>
+                <td><button
+                  class="btn waves-effect waves-green my-button-green darken-4"
+                  type="submit"
+                  [routerLink]="['/a/novo-tema']"
+                >
+                  Editar tema
+                </button></td>
+                <td><button
+                  class="btn waves-effect waves-green red darken-4"
+                  type="submit"
+                  [routerLink]="['/a/novo-tema']"
+                >
+                  Deletar tema
+                </button></td>
+              </tr>
+            </table>
+        </div>
+
+    </div>
+  </div>
+</div>
+

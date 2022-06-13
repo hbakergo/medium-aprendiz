@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container contact">
   <div class="row" style="margin-top: 20px">
     <h3>Entre em contato:</h3>
     <hr/>
@@ -15,29 +15,36 @@
         azul caso seja válido
       -->
       <div
-        id="div-deposit-message"
+        id="msg-contact"
         class="card-panel white-text"
-        [hidden]="!this.contactMessage"
-        [class.red]="this.contactInvalid"
-        [class.purple]="!this.contactInvalid"
+        [class.red]="!this.isSuccess"
+        [class.purple]="this.isSuccess"
+        *ngIf="this.isShowMessage"
       >
       <!--
         aqui na mensagem usamos também a interpolação para apresentar o texto
         da mensagem, se for de sucesso ou não
       -->
-      {{ this.contactMessage }}
+      {{ this.message }}
       </div>
     </div>
-    <form class="col s12" (submit)="onSubmit()">
+    <form class="col s12" #form="ngForm" (submit)="onSubmit()">
       <div class="row">
         <div class="input-field col s12">
           <input
             id="input-name"
             name="input-name"
             type="text"
-            [(ngModel)]="this.name"
+            class="validate"
+            [(ngModel)]="this.namets"
+            pattern="^[a-z|A-Z|à-ú|À-Ú\s]+$"
+            #name="ngModel"
+            required
           />
-          <label for="input-name">Nome</label>
+          <label for="input-name">Nome Completo *</label>
+          <div class="red-text" [hidden]="name.valid || name.untouched">
+            Por favor, informe o seu nome completo.
+          </div>
         </div>
       </div>
       <div class="row">
@@ -46,25 +53,40 @@
             id="input-email"
             name="input-email"
             type="email"
-            [(ngModel)]="this.email"
             class="validate"
+            [(ngModel)]="this.emailts"
+            pattern="\w+@\w+\.\w+(\.\w{2})?"
+            #email="ngModel"
+            required
           />
-          <label for="input-email">Email</label>
+          <label for="input-email">Email *</label>
+          <div class="red-text" [hidden]="email.valid || email.untouched">
+            Por favor, informe um e-mail válido.
+          </div>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
           <textarea
-            id="textarea-message"
-            class="materialize-textarea"
-            name="textarea-message"
-            [(ngModel)]="this.message"></textarea>
-          <label for="textarea-message">Mensagem</label>
+            id="textarea-usermessage"
+            name="textarea-usermessage"
+            type="text"
+            class="materialize-textarea validate"
+            [(ngModel)]="this.usermessagets"
+            pattern="^[a-z|A-Z|à-ú|À-Ú\s]+$"
+            #usermessage="ngModel"
+            required
+          ></textarea>
+          <label for="textarea-usermessage">Mensagem *</label>
+          <div class="red-text" [hidden]="usermessage.valid || usermessage.untouched">
+            Por favor, informe sua mensagem para nos enviar.
+          </div>
         </div>
       </div>
       <button
         class="btn waves-effect waves-purple my-menu darken-4"
         type="submit"
+        [disabled]="!form.valid"
       >
         Enviar
         <i class="material-icons right">send</i>

@@ -16,6 +16,9 @@ import { ContactComponent } from './contact/contact.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { MediumComponent } from './medium/medium.component';
 import { MessagesPageComponent } from './messages-page/messages-page.component';
+import { AdmUserComponent } from './adm-user/adm-user.component';
+import { AdmMessageThemeComponent } from './adm-message-theme/adm-message-theme.component';
+import { AdmMessageThemeFormComponent } from './adm-message-theme-form/adm-message-theme-form.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,10 @@ import { MessagesPageComponent } from './messages-page/messages-page.component';
     ContactComponent,
     PageNotFoundComponent,
     MediumComponent,
-    MessagesPageComponent
+    MessagesPageComponent,
+    AdmUserComponent,
+    AdmMessageThemeComponent,
+    AdmMessageThemeFormComponent
   ],
   imports: [
     BrowserModule,

@@ -39,29 +39,96 @@ hr {
   background-color: #640094;
 }
 
+
+
 /* label color */
 .input-field label {
   color: #640094;
 }
-/* label focus color */
+.input-field:focus-within {
+  color: #640094;
+}
+/* label - Text - focus color */
 .input-field input[type=text]:focus + label {
   color: #640094;
 }
-/* label underline focus color */
+/* label - TEXT - underline focus color */
 .input-field input[type=text]:focus {
   border-bottom: 1px solid #640094;
   box-shadow: 0 1px 0 0 #640094;
+
+  color: #640094; /*hbg*/
 }
-/* valid color */
+/* label -EMAIL - underline focus color */
+.input-field input[type=email]:focus {
+  border-bottom: 1px solid #640094;
+  box-shadow: 0 1px 0 0 #640094;
+
+  color: #640094; /*hbg*/
+}
+/* label -TEXTAREA - underline focus color */
+.input-field textarea:focus {
+  border-bottom: 1px solid #640094;
+  box-shadow: 0 1px 0 0 #640094;
+
+  color: #640094; /*hbg*/
+}
+/* valid input - Text */
 .input-field input[type=text].valid {
   border-bottom: 1px solid #640094;
   box-shadow: 0 1px 0 0 #640094;
+
+  color: #640094; /*hbg*/
+}
+/* valid input - Email*/
+.input-field input[type=email].valid {
+  border-bottom: 1px solid #640094;
+  box-shadow: 0 1px 0 0 #640094;
+
+  color: #640094; /*hbg*/
+}
+/* valid input - Password*/
+.input-field input[type=password].valid {
+  border-bottom: 1px solid #640094;
+  box-shadow: 0 1px 0 0 #640094;
+
+  color: #640094; /*hbg*/
+}
+/* valid textarea */
+.input-field textarea.valid {
+  border-bottom: 1px solid #640094;
+  box-shadow: 0 1px 0 0 #640094;
+
+  color: #640094;
 }
 /* invalid color */
 .input-field input[type=text].invalid {
-  border-bottom: 1px solid #640094;
-  box-shadow: 0 1px 0 0 #640094;
+  border-bottom: 1px solid red;
+  box-shadow: 0 1px 0 0 red;
+
+  color: red; /*hbg*/
 }
+/* invalid color */
+.input-field input[type=email].invalid {
+  border-bottom: 1px solid red;
+  box-shadow: 0 1px 0 0 red;
+
+  color: red; /*hbg*/
+}
+/* invalid input (text and e-mail)*/
+.input-field input.invalid + label {
+  color: red;
+}
+.input-field input.valid + label {
+  color: #640094;
+}
+
+/* invalid textarea */
+.input-field textarea.invalid + label{
+  color: red;
+}
+
+
 /* icon prefix focus color */
 .input-field .prefix.active {
   color: #640094;
@@ -108,13 +175,17 @@ hr {
   text-align: justify;
 }
 
-.my-panel-content {
+/* .my-panel-content {
   text-align: justify;
-}
+} */
 
 .my-center {
   display: block;
   margin: auto;
+}
+
+table > tbody > tr{
+  cursor: pointer;
 }
 
 /**
@@ -129,4 +200,11 @@ hr {
 **/
 .my-footer {
   background-color: #640094;
+}
+
+/**
+  Botão verde
+**/
+.my-button-green {
+  background-color: #269400;
 }
