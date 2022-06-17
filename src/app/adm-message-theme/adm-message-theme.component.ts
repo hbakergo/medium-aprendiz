@@ -2,6 +2,7 @@ import { Theme } from './../model/theme';
 import { Component, OnInit } from '@angular/core';
 import { ThemeService } from '../services/theme.service';
 import { Shared } from '../util/shared';
+import { ThemePromiseService } from '../services/theme-promise.service';
 
 @Component({
   selector: 'app-adm-message-theme',
@@ -11,11 +12,20 @@ import { Shared } from '../util/shared';
 export class AdmMessageThemeComponent implements OnInit {
   themes?: Theme[];
 
-  constructor(private themeService: ThemeService) { }
+  constructor(
+    private themeService: ThemeService,
+    private themePromiseService: ThemePromiseService
+  ) { }
 
   ngOnInit(): void {
     Shared.initializeWebStorage();
-    this.themes = this.themeService.getThemes();
+    /**
+     * desabilitado para atender a entrega 10
+     */
+    //this.themes = this.themeService.getThemes();
+
+    this.themePromiseService.getThemes()
+      .then(value => { this.themes = value;});
   }
 
 }

@@ -1,0 +1,104 @@
+{
+  "users": [
+    {
+      "id": "10",
+      "name": "Tomas Leite",
+      "username": "tomaz.leite",
+      "password": "qwerty",
+      "email": "tomaz@leite.com",
+      "isAdmin": true
+    },
+    {
+      "id": "11",
+      "name": "Hugo Baker Goveia",
+      "username": "hbaker",
+      "password": "qwerty",
+      "email": "hugo@baker.com",
+      "isAdmin": true
+    }
+  ],
+  "themes": [
+    {
+      "id": 1,
+      "name": "Amor"
+    },
+    {
+      "id": 2,
+      "name": "Arrependimento"
+    },
+    {
+      "id": 3,
+      "name": "Perdão"
+    },
+    {
+      "id": 4,
+      "name": "Caridade"
+    },
+    {
+      "id": 5,
+      "name": "Solidão"
+    },
+    {
+      "id": 6,
+      "name": "Limitação"
+    },
+    {
+      "id": 7,
+      "name": "Instrução"
+    },
+    {
+      "id": 8,
+      "name": "Simplicidade"
+    },
+    {
+      "id": 9,
+      "name": "Evolução"
+    },
+    {
+      "id": 10,
+      "name": "Paz"
+    },
+    {
+      "id": 749,
+      "name": "Vida nova"
+    },
+    {
+      "id": 125,
+      "name": "Vida espiritual"
+    },
+    {
+      "id": 118,
+      "name": "Gratidão"
+    }
+  ],
+  "messages": [
+    {
+      "id": 1,
+      "date": "2021-12-7",
+      "message": "Muitos de nós não gostam da solidão porque não entendem que ela não existe. Na verdade nós é que não sabemos observar que nunca estamos sós.",
+      "authorship": "Maria Antonieta",
+      "themeId": 5
+    },
+    {
+      "id": 2,
+      "date": "2021-12-2",
+      "message": "É normal do processo evolutivo de cada um de nós passar por momentos de limitação, onde nos sentimos presos, mas com a vontade de crescer. O que devemos entender é que às vezes estar \"preso\" de alguma forma é o que precisamos passar para poder crescer e alcançar as altas esferas da evolução!",
+      "authorship": "Luiz",
+      "themeId": 6
+    },
+    {
+      "id": 3,
+      "date": "2021-06-24",
+      "message": "A paz de coração transborda naquele que encara os problemas com simplicidade, pois o que complica transborda tudo em tempestade e tormenta.    Quanto mais nos instruimos, mais entendemos tudo que acontece em nossa vida e no mundo. O entendimento nos liberta da ignorância e nos coloca na direção do progresso.",
+      "authorship": "Manoel",
+      "themeId": 10
+    },
+    {
+      "id": 4,
+      "date": "2021-06-22",
+      "message": "Mudou no postman... conteúdo com paz",
+      "authorship": "Luiz",
+      "themeId": 10
+    }
+  ]
+}

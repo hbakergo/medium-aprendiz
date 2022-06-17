@@ -8,6 +8,7 @@ import { BemVindoPubComponent } from './bem-vindo-pub/bem-vindo-pub.component';
 import { BemVindoAdmComponent } from './bem-vindo-adm/bem-vindo-adm.component';
 import { MenuComponent } from './shared/menu/menu.component';
 import { FooterComponent } from './shared/footer/footer.component';
+import { HttpClientModule } from '@angular/common/http';
 import { MessageSearchComponent } from './message-search/message-search.component';
 import { LandPageComponent } from './land-page/land-page.component';
 import { MessagesListComponent } from './messages-list/messages-list.component';
@@ -42,6 +43,7 @@ import { AdmMessageThemeFormComponent } from './adm-message-theme-form/adm-messa
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     FormsModule
   ],
   providers: [],
