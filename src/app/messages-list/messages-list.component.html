@@ -28,4 +28,15 @@
       </div>
     </div>
 
+    <div *ngIf="!messages|| messages!.length == 0">
+      <div class="row">
+        <div class="center-align">
+          <i class="col s12 material-icons large">mood_bad</i>
+          <span class="col s12 flow-text">
+            Sem mensagens para mostrar!
+          </span>
+        </div>
+      </div>
+    </div>
+
 </div>

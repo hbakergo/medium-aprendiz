@@ -24,29 +24,11 @@
               <label for="input-author">Qual autor?</label>
             </div>
 
-            <div class="input-field col s2">
-              <input
-                name="input-initial-date"
-                type="text"
-                [(ngModel)]="this.initialDate"
-              />
-              <label for="input-initial-date">De:</label>
-            </div>
-
-            <div class="input-field col s2">
-              <input
-                name="input-final-date"
-                type="text"
-                [(ngModel)]="this.finalDate"
-              />
-              <label for="input-final-date">Até:</label>
-            </div>
-
           </div>
           <button
             class="btn waves-effect waves-purple my-menu darken-4"
             type="submit"
-            [routerLink]="['/mensagens', this.author]"
+            [routerLink]="['/mensagens']" [queryParams]="{content: this.sentence, authorShip: this.author, search: true }"
           >
             Buscar mensagens
             <i class="material-icons right">send</i>
@@ -57,8 +39,3 @@
   </div>
 </div>
 
-<!--
-  tirei do botão [routerLink]="['/mensagens', this.author]"
-  para poder evoluir a atividade com a passagem de dados entre componentes
-  que representam diferentes telas via parâmetros de rotas
--->

@@ -37,26 +37,7 @@ export class ContactComponent implements OnInit {
 
 
   onSubmit(){
-    alert('[implementar] -> Enviar mensagem com sucesso!');
-    // if (!this.name){
-    //   this.errors.push("\nFaltou informar o nome!");
-    // }
-    // if (!this.email){
-    //   this.errors.push("\nFaltou informar o e-mail!");
-    // } else if (!Validation.validateEmail(this.email)) {
-    //   this.errors.push("\nE-mail inválido!");
-    //   this.email = '';
-    // }
-    // if (!this.message){
-    //   this.errors.push("\nFaltou informar a mensagem!");
-    // }
-    // if(this.errors.length>0){
-    //   this.contactInvalid = true;
-    //   this.contactMessage = `Erro ao enviar mensagem:
-    //                         ${this.errors}`;
-    // } else {
-    //   this.contactMessage = "Mensagem enviada, agradecemos o contato. Logo responderemos!";
-    // }
+    alert('[implementar futuramente] -> Enviar mensagem com sucesso!');
   }
 
 }

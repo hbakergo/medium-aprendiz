@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 
 import { Message } from './../model/message';
 import { messages } from '../util/messages';
+import { MessageObservableService } from '../services/message-observable.service';
 
 @Component({
   selector: 'app-messages-list',
@@ -10,15 +11,68 @@ import { messages } from '../util/messages';
 })
 export class MessagesListComponent implements OnInit {
   @Input() show!: boolean;
-  messages = messages;
+  @Input() authorShip?: string;
+  @Input() content?: string;
+  @Input() search?: boolean;
+
+  //messages = messages;
+  messages?: Message[];
+
   messagesResult!: Message[];
   sortBy = 'ZA';
   showFilter = false;
 
-  constructor() { }
+  constructor(
+    private messageObservableService: MessageObservableService
+  ) { }
 
   ngOnInit(): void {
     this.onSortMessages();
+
+    //se não informou conteúdo nenhum ele coloca vazio na string
+    if(this.content === null || this.content ===undefined ){
+      this.content = '';
+    }
+
+    //se não informou conteúdo nenhum ele coloca vazio na string
+    if(this.authorShip === null || this.authorShip ===undefined ){
+      this.authorShip = '';
+    }
+
+    //se não foi feito busca, ou seja, usuário clicou no 'Mensagens' ele mostra os 3 últimos
+    if(!this.search){
+      this.messageObservableService.getLast3()
+        .subscribe(
+          (data) => {
+            this.messages = data;
+          },
+          (error) => {
+            alert('ERRO INESPERADO!');
+          }
+        );
+    } else //se foi feito busca e foi informado algo a buscar
+      if(this.search && (this.authorShip || this.content)){
+      this.messageObservableService.getBy(this.content, this.authorShip)
+        .subscribe(
+          (data) => {
+            this.messages = data;
+          },
+          (error) => {
+            alert('ERRO INESPERADO!');
+          }
+        );
+    }else{ //se não informou nada e clicou no buscar ele traz as 3 últimas mensagens
+      alert('Para realizar uma busca, informar o autor e/ou conteúdo da mensagem que deseja! Abaixo serão exibidas as 3 últimas mensagens do acervo!');
+      this.messageObservableService.getLast3()
+        .subscribe(
+          (data) => {
+            this.messages = data;
+          },
+          (error) => {
+            alert('ERRO INESPERADO!');
+          }
+        );
+    }
   }
 
   /**
@@ -27,9 +81,9 @@ export class MessagesListComponent implements OnInit {
    */
    onSortMessages(){
     if (this.sortBy === 'AZ'){
-      this.messages.sort((a, b) => (a.date < b.date) ? -1 : 1);
+      this.messages?.sort((a, b) => (a.date < b.date) ? -1 : 1);
     } else if (this.sortBy === 'ZA') {
-      this.messages.sort((a, b) => (a.date < b.date) ? 1 : -1);
+      this.messages?.sort((a, b) => (a.date < b.date) ? 1 : -1);
     }
   }
 

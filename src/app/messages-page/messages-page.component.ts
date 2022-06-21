@@ -8,19 +8,17 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class MessagesPageComponent implements OnInit {
   showTitleLastMessages: boolean = false;
-  authorShip!: String;
+  authorShip?: string;
+  content?: string;
+  search: boolean  = false;
 
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    //Pegar os parâmetros de busca da rota, foi usado somente o authorship como exemplo
-    //de passagem de parâmetro de rota
-    const routeParams = this.route.snapshot.paramMap;
-    const authorshipFromRoute = routeParams.get('authorship');
-
-    if(authorshipFromRoute){
-      this.authorShip = authorshipFromRoute;
-    }
+    this.route.queryParams.subscribe(params => {
+      this.authorShip = params['authorShip'];
+      this.content = params['content'];
+      this.search = params['search'];
+    })
   }
-
 }

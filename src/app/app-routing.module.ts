@@ -20,6 +20,7 @@ const routes: Routes = [
   { path: 'medium', component: MediumComponent },
   { path: 'contato', component: ContactComponent},
   { path: 'mensagens/:authorship', component: MessagesPageComponent},
+  { path: 'mensagens/:content/:authorship/:initialdate/:finaldate', component: MessagesPageComponent},
   { path: '', redirectTo: 'inicio', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },
 ];

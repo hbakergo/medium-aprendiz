@@ -12,6 +12,7 @@ export class MessageSearchComponent implements OnInit {
   finalDate!: Date;
   category!: string[];
   search!: string;
+  router: any;
 
   constructor() { }
 
