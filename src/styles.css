@@ -151,7 +151,7 @@ hr {
 .my-blockquote{
   border:silver solid;
   border-width: 0px 0px 0px 0px;
-  background: transparent url(/assets/resources/images/quotes.gif) no-repeat scroll left top;
+  background: transparent url(assets/resources/images/quotes.gif) no-repeat scroll left top;
   padding-left: 33px;
   padding-top: 17px;
   padding-bottom:10px;

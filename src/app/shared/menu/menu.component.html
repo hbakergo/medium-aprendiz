@@ -12,7 +12,7 @@
         <!-- Não Logado-->
         <ul class="right hide-on-med-and-down" [hidden]="this.loggedIn">
           <li><a href="#" class="flow-text">Home</a></li>
-          <li><a href="/mensagens" class="flow-text">Mensagens</a></li>
+          <li><a routerLink="/mensagens" class="flow-text">Mensagens</a></li>
           <li><a routerLink="/medium" class="flow-text">Médium</a></li>
           <li><a routerLink="/contato" class="flow-text">Contato</a></li>
           <li><a routerLink="/login" class="flow-text">Login</a></li>
@@ -20,7 +20,7 @@
         <!-- Não Logado-->
         <!-- Logado-->
         <ul class="right hide-on-med-and-down" [hidden]="!this.loggedIn">
-          <li><a href="/a" class="flow-text">Home</a></li>
+          <li><a routerLink="/a" class="flow-text">Home</a></li>
           <li><a routerLink="/a/mensagens" class="flow-text">Mensagens</a></li>
           <li><a routerLink="/a/temas" class="flow-text">Temas</a></li>
           <li><a routerLink="/a/usuarios" class="flow-text">Usuários</a></li>
@@ -45,7 +45,7 @@
     <!-- Não Logado-->
     <div *ngIf="!this.loggedIn">
       <li><a href="#" class="flow-text white-text">Home</a></li>
-      <li><a href="/mensagens" class="flow-text white-text">Mensagens</a></li>
+      <li><a routerLink="/mensagens" class="flow-text white-text">Mensagens</a></li>
       <li><a routerLink="/medium" class="flow-text white-text">Médium</a></li>
       <li><a routerLink="/contato" class="flow-text white-text">Contato</a></li>
       <li><a routerLink="/login" class="flow-text white-text">Login</a></li>
@@ -53,7 +53,7 @@
     <!-- Não Logado-->
     <!-- Logado-->
     <div *ngIf="this.loggedIn">
-      <li><a href="/a" class="flow-text white-text">Home</a></li>
+      <li><a routerLink="/a" class="flow-text white-text">Home</a></li>
       <li><a routerLink="/a/mensagens" class="flow-text">Mensagens</a></li>
       <li><a routerLink="/a/temas" class="flow-text">Temas</a></li>
       <li><a routerLink="/a/usuarios" class="flow-text">Usuários</a></li>
