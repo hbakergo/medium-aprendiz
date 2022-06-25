@@ -10,6 +10,9 @@ O frontend da aplicação foi desenvolvido com Angular e o backend foi simulado 
 
 É preciso também ter o JSON Server instalado no computador local, consultando a documentação é possível obter informações como utilizar e instalar em => https://www.npmjs.com/package/json-server
 
+# Endereço de Deploy - GitHub Pages
+https://hbakergo.github.io/medium-aprendiz/
+
 # Protótipo
 https://www.figma.com/file/T7DusX9ExSX1S9RbeZyeDW/medium-aprendiz?node-id=5%3A42
 
