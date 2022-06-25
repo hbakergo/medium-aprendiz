@@ -1,0 +1,86 @@
+<div class="container contact">
+  <h5>Editar Tema</h5>
+  <hr/>
+  <div class="row">
+    <!--
+      Div responsável por mostrar a mensgem de erro ou sucesso
+
+      até então só está aparecendo mensagens de sucesso pois estamos usando
+      o local storage, e a validação está ocorrendo antes do dado ser enviado
+      para o onSubmit
+    -->
+    <div class="col s12">
+      <div
+        id="msg-theme"
+        class="card-panel white-text"
+        [class.red]="!this.isSuccess"
+        [class.blue]="this.isSuccess"
+        *ngIf="this.isShowMessage"
+      >
+        {{ this.message }}
+      </div>
+    </div>
+    <!--
+      Nesse form abaixo temos uma variável de template => #form="ngForm" que aponta
+      para um objeto da classe ngForm e temos também o (submit)="onSubmit()"
+    -->
+    <form class="col s12" #form="ngForm" (submit)="onSubmit()">
+      <div class="input-field col s12">
+          <!--
+          abaixo temos o input para o tema da mensagem onde é usado o
+          two-way data binding através do [(ngModel)]="this.theme.name" e para isso
+          também devemos declarar o name="input-name" para funcionar corretamente
+
+          é usado também o pattern:
+          pattern="^[a-z|A-Z|à-ú|À-Ú\s]+$"
+          o pattern usa uma expressão regex para validação dos dados do campo
+
+          para testar as expressões regex, podemos usar o site scriptular.com
+        -->
+        <input
+          id="input-name"
+          name="input-name"
+          type="text"
+          class="validate"
+          [(ngModel)]="this.theme.name"
+          pattern="^[a-z|A-Z|à-ú|À-Ú\s]+$"
+          #name="ngModel"
+          required
+          autofocus
+        />
+        <label for="input-name">Tema *</label>
+        <!--
+          abaixo temos o campo de mensagem de erro que vai informar a mensagem
+          com o texto em vermelho de acordo com a classe CSS "red-text"
+          Por padrão essa mensagem está escondida de acordo com o hidden informado
+          [hidden]="name.valid || name.untouched"
+          então só vai exibir a mensagem se o campo for inválido ou se ele foi tocado
+          pois quando ele é tocado é feita a verificação do mesmo
+
+          acima no input-name foi usado uma variável de template => #name="ngModel"
+          referenciando o ngModel e o valid e o untouched são atributos do ngModel
+        -->
+        <div class="red-text" [hidden]="name.valid || name.untouched">
+          Por favor, informe o tema a ser cadastrado corretamente (Utilize apenas letras).
+        </div>
+      </div>
+
+      <!--
+        se a validação de todos os campos forem satisfeitas, ele habilita o botão
+        submit, pois foi usado o =>[disabled]="!form.valid" que refere-se ao conjunto
+        dos inputs do "form"
+
+        lembrando que o form foi setado como variável de template, pois usou o
+        #form="ngForm" na tag Form
+      -->
+      <button
+        class="btn waves-effect waves-purple my-menu darken-4"
+        type="submit"
+        [disabled]="!form.valid"
+      >
+        Confirmar edição
+        <i class="material-icons right">send</i>
+      </button>
+    </form>
+  </div>
+</div>

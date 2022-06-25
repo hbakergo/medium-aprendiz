@@ -1,0 +1,245 @@
+<div class="container contact">
+  <h5>Cadastro de Usuários</h5>
+  <hr/>
+  <div class="row">
+    <!--
+      Div responsável por mostrar a mensgem de erro ou sucesso
+
+      até então só está aparecendo mensagens de sucesso pois estamos usando
+      o local storage, e a validação está ocorrendo antes do dado ser enviado
+      para o onSubmit
+    -->
+    <div class="col s12">
+      <div
+        id="msg-login"
+        class="card-panel white-text"
+        [class.red]="!this.isSuccess"
+        [class.blue]="this.isSuccess"
+        *ngIf="this.isShowMessage"
+      >
+        {{ this.message }}
+      </div>
+    </div>
+    <!--
+      Nesse form abaixo temos uma variável de template => #form="ngForm" que aponta
+      para um objeto da classe ngForm e temos também o (submit)="onSubmit()"
+
+    -->
+    <form class="col s12" #form="ngForm" (submit)="onSubmit()">
+      <div class="input-field col s12">
+          <!--
+          abaixo temos o input para o nome completo do usuário onde é usado o
+          two-way data binding através do [(ngModel)]="this.user.name" e para isso
+          também devemos declarar o name="input-name" para funcionar corretamente
+
+          é usado também o pattern:
+          pattern="^(\s?[A-ZÀ-Ú][a-zà-ú]*)+(\s[a-zà-ú]*)?(\s[A-ZÀ-Ú][a-zà-ú]*)+"
+          o pattern usa uma expressão regex para validação dos dados de um campo
+          com nome completo
+
+          para testar as expressões regex, podemos usar o site scriptular.com
+        -->
+        <input
+          id="input-name"
+          name="input-name"
+          type="text"
+          class="validate"
+          [(ngModel)]="this.user.name"
+          pattern="^[a-z|A-Z|à-ú|À-Ú\s]+$"
+          #name="ngModel"
+          required
+        />
+        <label for="input-name">Nome Completo *</label>
+        <!--
+          abaixo temos o campo de mensagem de erro que vai informar a mensagem
+          com o texto em vermelho de acordo com a classe CSS "red-text"
+          Por padrão essa mensagem está escondida de acordo com o hidden informado
+          [hidden]="name.valid || name.untouched"
+          então só vai exibir a mensagem se o campo for inválido ou se ele foi tocado
+          pois quando ele é tocado é feita a verificação do mesmo
+
+          acima no input-name foi usado uma variável de template => #name="ngModel"
+          referenciando o ngModel e o valid e o untouched são atributos do ngModel
+        -->
+        <div class="red-text" [hidden]="name.valid || name.untouched">
+          Por favor, informe o seu nome completo.
+        </div>
+      </div>
+
+      <div class="input-field col s12">
+        <!--
+          aqui temos o pattern para o username => pattern="^[a-z]+([\.-]?[a-z]+)*"
+          esse patern só aceita caracteres minusculos e com alguns traços e pontos
+        -->
+        <input
+          id="input-username"
+          name="input-username"
+          type="text"
+          class="validate"
+          [(ngModel)]="this.user.username"
+          pattern="^[a-z]+([\.-]?[a-z]+)*"
+          #username="ngModel"
+          required
+          [disabled]="this.isUpdating"
+        />
+        <label for="input-username">Nome de Usuário *</label>
+        <div class="red-text" [hidden]="username.valid || username.untouched">
+          Por favor, informe o seu username em letras minúsculas e sem espaços.
+        </div>
+      </div>
+
+      <div class="input-field col s12 l6">
+        <!--
+          abaixo no input da senha temos um quantificador no pattern que só aceita
+          de 6 a 18 caracteres => {6,18}
+          e o pattern da senha é ^[a-zA-Z0-9_@#\\&\\$]{6,18}$
+          tanto faz minusculos, maiusculos ou digitos e aceita caracteres @#&$
+        -->
+        <input
+          id="input-password"
+          name="input-password"
+          type="password"
+          class="validate"
+          [(ngModel)]="this.user.password"
+          pattern="^[a-zA-Z0-9_@#\\&\\$]{6,18}$"
+          #password="ngModel"
+          required
+        />
+        <label for="input-password">Senha *</label>
+        <div class="red-text" [hidden]="password.valid || password.untouched">
+          Por favor, nos informe a sua senha com pelo menos 6 caracteres!
+        </div>
+      </div>
+
+      <div class="input-field col s12 l6">
+        <!--
+          esse input usa o pattern digitado no campo de senha, pois faz a referência
+          usando assim => pattern="{{ password.value }}"
+        -->
+        <input
+          id="input-user-repassword"
+          name="input-user-repassword"
+          type="password"
+          class="validate"
+          [(ngModel)]="this.userRepassword"
+          #repassword="ngModel"
+          pattern="{{ password.value }}"
+          required
+        />
+        <label for="input-user-repassword">Repita a senha *</label>
+        <div
+          class="red-text"
+          [hidden]="repassword.valid || repassword.untouched"
+        >
+          Por favor, repita a sua senha.
+        </div>
+      </div>
+
+      <div class="input-field col s12 ">
+        <!--
+          abaixo nesse input temos o REGEX do CPF pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
+          temos também a máscara do CPF => mask="CPF_CNPJ"
+          [dropSpecialCharacters]="false" => essa configuração salva no atributo o
+          o CPF incluindo os caracteres especiais, ou seja, os pontos e o ifen do CPF
+        -->
+        <input
+          id="input-email"
+          name="input-email"
+          type="email"
+          class="validate"
+          [(ngModel)]="this.user.email"
+          pattern="\w+@\w+\.\w+(\.\w{2})?"
+          #email="ngModel"
+          required
+        />
+        <label for="input-email">Email *</label>
+        <div class="red-text" [hidden]="email.valid || email.untouched">
+          Por favor, informe um e-mail válido.
+        </div>
+      </div>
+
+      <!--
+        se a validação de todos os campos forem satisfeitas, ele habilita o botão
+        submit, pois foi usado o =>[disabled]="!form.valid" que refere-se ao conjunto
+        dos inputs do "form"
+
+        lembrando que o form foi setado como variável de template, pois usou o
+        #form="ngForm" na tag Form
+      -->
+      <button
+        class="btn waves-effect waves-purple my-menu darken-4"
+        type="submit"
+        [disabled]="!form.valid"
+      >
+        Enviar
+        <i class="material-icons right">send</i>
+    </button>
+    </form>
+  </div>
+  <br/>
+  <h5>Usuários cadastrados</h5>
+  <!--
+    Tabela de usuários
+
+    é a tabela com as entidades persistidas no banco de dados
+    Foi usado a diretiva estrutura  *ngIf="users && users!.length > 0"
+    que só vai mostrar a tabela caso o vetor de usuários tenha tamanho
+    maior que zero, ou seja, se ele tem pelo menos um elemento
+  -->
+  <table class="highlight" *ngIf="users && users!.length > 0">
+    <!--
+      thead é a tag que usamos para especificar o cabeçalho da table
+    -->
+    <thead>
+      <tr>
+        <th>Nome Completo</th>
+        <th>Nome de usuário</th>
+        <th>E-mail</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <!--
+        abaixo temos o uso da diretiva *ngFor="let u of users"
+        que vai percorrer o vetor de usuários e listar cada linha da tabela com
+        um usuário
+      -->
+      <tr *ngFor="let u of users">
+        <td>{{ u.name }}</td>
+        <td>{{ u.username }}</td>
+        <td>{{ u.email }}</td>
+        <!--
+          Na última coluna de cada linha temos foi incluido os dois icones, um para
+          'editar' e outro para 'excluir', sendo que o u é o usuário declarado
+          no ngFor 'let u' e esse usuário é enviado para o método onEdit, já no
+          onDelete é passado o 'u.username'
+        -->
+        <td class="right">
+          <a>
+            <i class="material-icons my-icon-size" (click)="onEdit(u)">
+              edit
+            </i>
+          </a>
+          <a>
+            <i class="material-icons my-icon-size" (click)="onDelete(u.username)">
+              delete
+            </i>
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="!users || users!.length == 0">
+    <div class="row">
+      <div class="center-align">
+        <i class="col s12 material-icons large">mood_bad</i>
+        <span class="col s12 flow-text">
+          Ainda não temos usuários cadastrados!
+        </span>
+      </div>
+    </div>
+  </div>
+
+</div>

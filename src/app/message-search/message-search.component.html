@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col s12 l11 m5">
+    <div class="card-panel " [style.backgroundColor] = "'#F6F5F5'">
+      <span class="black-text">
+        <h6 class="my-font-purple"><b>Buscar mensagens:</b></h6>
+        <br/>
+        <form #form="ngForm" (submit)="onSubmit()">
+          <div class="row">
+            <div class="input-field col s6">
+              <input
+                name="input-sentence"
+                type="text"
+                [(ngModel)]="this.sentence"
+              />
+              <label for="input-sentence">Contendo qual texto?</label>
+            </div>
+
+            <div class="input-field col s6">
+              <input
+                name="input-author"
+                type="text"
+                [(ngModel)]="this.author"
+              />
+              <label for="input-author">Qual autor?</label>
+            </div>
+
+          </div>
+          <button
+            class="btn waves-effect waves-purple my-menu darken-4"
+            type="submit"
+            [routerLink]="['/mensagens']" [queryParams]="{content: this.sentence, authorShip: this.author, search: true }"
+          >
+            Buscar mensagens
+            <i class="material-icons right">send</i>
+          </button>
+        </form>
+      </span>
+    </div>
+  </div>
+</div>

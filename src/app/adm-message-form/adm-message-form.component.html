@@ -1,0 +1,116 @@
+<div class="container contact">
+  <h5>Nova Mensagem</h5>
+  <hr/>
+  <div class="row">
+    <!--
+      Div responsável por mostrar a mensgem de erro ou sucesso
+
+      até então só está aparecendo mensagens de sucesso pois estamos usando
+      o local storage, e a validação está ocorrendo antes do dado ser enviado
+      para o onSubmit
+    -->
+    <div class="col s12">
+      <div
+        id="msg-theme"
+        class="card-panel white-text"
+        [class.red]="!this.isSuccess"
+        [class.blue]="this.isSuccess"
+        *ngIf="this.isShowMessage"
+      >
+        {{ this.messageUser }}
+      </div>
+    </div>
+    <!--
+      Nesse form abaixo temos uma variável de template => #form="ngForm" que aponta
+      para um objeto da classe ngForm e temos também o (submit)="onSubmit()"
+    -->
+    <form class="col s12" #form="ngForm" (submit)="onSubmit()">
+
+      <div class="input-field col s12">
+        <input
+          id="input-date"
+          name="input-date"
+          type="date"
+          class="validate"
+          [(ngModel)]="this.message.date"
+          #datets="ngModel"
+          required
+        />
+        <label for="input-authorship">Data *</label>
+        <div class="red-text" [hidden]="datets.valid || datets.untouched">
+          Por favor, informe a data corretamente (dd/mm/aaaa).
+        </div>
+      </div>
+
+      <div class="input-field col s12">
+        <textarea
+          id="textarea-message"
+          name="textarea-message"
+          type="text"
+          class="materialize-textarea validate"
+          [(ngModel)]="this.message.message"
+          #messagets="ngModel"
+          required
+        ></textarea>
+        <label for="textarea-message">Mensagem *</label>
+        <div class="red-text" [hidden]="messagets.valid || messagets.untouched">
+          Por favor, informe sua mensagem para nos enviar.
+        </div>
+      </div>
+
+      <div class="input-field col s12">
+          <!--
+          abaixo temos o input para o nome do autor da mensagem onde é usado o
+          two-way data binding através do [(ngModel)]="this.message.authorship" e para isso
+          também devemos declarar o name="input-authorship" para funcionar corretamente
+
+          é usado também o pattern:
+          pattern="^[a-z|A-Z|à-ú|À-Ú\s]+$"
+          o pattern usa uma expressão regex para validação dos dados do campo
+
+          para testar as expressões regex, podemos usar o site scriptular.com
+        -->
+        <input
+          id="input-authorship"
+          name="input-authorship"
+          type="text"
+          class="validate"
+          [(ngModel)]="this.message.authorship"
+          pattern="^[a-z|A-Z|à-ú|À-Ú\s]+$"
+          #authorshipts="ngModel"
+          required
+        />
+        <label for="input-authorship">Autoria *</label>
+        <div class="red-text" [hidden]="authorshipts.valid || authorshipts.untouched">
+          Por favor, informe o nome do autor da mensagem a ser cadastrado corretamente (Utilize apenas letras).
+        </div>
+      </div>
+
+      <div class="input-field col s12">
+        <li><label [ngStyle]="{'font-size': '14px' }" for="input-theme">Tema *</label></li>
+          <select class="browser-default" id="input-theme" name="input-theme"
+          [(ngModel)]="this.message.themeId" required>
+            <option value=""> Selecione um tema</option>
+            <option *ngFor="let t of themes" [value]="t.id">{{t.name}}</option>
+          </select>
+      </div>
+
+      <!--
+        se a validação de todos os campos forem satisfeitas, ele habilita o botão
+        submit, pois foi usado o =>[disabled]="!form.valid" que refere-se ao conjunto
+        dos inputs do "form"
+
+        lembrando que o form foi setado como variável de template, pois usou o
+        #form="ngForm" na tag Form
+      -->
+      <button
+        class="btn waves-effect waves-purple my-menu darken-4"
+        type="submit"
+        [disabled]="!form.valid"
+      >
+        Confirmar cadastro
+        <i class="material-icons right">send</i>
+      </button>
+    </form>
+  </div>
+</div>

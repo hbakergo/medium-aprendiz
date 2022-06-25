@@ -1,0 +1,11 @@
+{
+  "/mensagens": "/messages",
+  "/mensagens/recentes/:qtde": "/messages?_limit=:qtde&_page=0",
+
+  "/temas/:name": "/themes?name=:name",
+  "/temas": "/themes",
+
+  "/usuarios": "/users",
+  "/usuarios/:username": "/users?username=:username"
+}
+

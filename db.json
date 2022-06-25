@@ -1,0 +1,172 @@
+{
+  "users": [
+    {
+      "id": "10",
+      "name": "Tomas Leite",
+      "username": "tomaz.leite",
+      "password": "qwerty",
+      "email": "tomaz@leite.com",
+      "isAdmin": true,
+      "balance": null
+    },
+    {
+      "id": "11",
+      "name": "Hugo Baker Goveia",
+      "username": "hbaker",
+      "password": "qwerty",
+      "email": "hugo@baker.com",
+      "isAdmin": true
+    }
+  ],
+  "themes": [
+    {
+      "id": 1,
+      "name": "Amor"
+    },
+    {
+      "id": 2,
+      "name": "Arrependimento"
+    },
+    {
+      "id": 3,
+      "name": "Perdão"
+    },
+    {
+      "id": 4,
+      "name": "Caridade"
+    },
+    {
+      "id": 5,
+      "name": "Solidão"
+    },
+    {
+      "id": 6,
+      "name": "Limitação"
+    },
+    {
+      "id": 7,
+      "name": "Instrução"
+    },
+    {
+      "id": 10,
+      "name": "Paz"
+    },
+    {
+      "id": 85,
+      "name": "Acaso"
+    },
+    {
+      "id": 556,
+      "name": "Auto controle"
+    },
+    {
+      "id": 342,
+      "name": "Evolução"
+    },
+    {
+      "id": 805,
+      "name": "Transição Planetária"
+    },
+    {
+      "id": 118,
+      "name": "Pensamentos negativos"
+    },
+    {
+      "id": 11,
+      "name": "Luz interior"
+    }
+  ],
+  "messages": [
+    {
+      "id": 2,
+      "date": "2021-12-02",
+      "message": "É normal do processo evolutivo de cada um de nós passar por momentos de limitação, onde nos sentimos presos, mas com a vontade de crescer. O que devemos entender é que às vezes estar \"preso\" de alguma forma é o que precisamos passar para poder crescer e alcançar as altas esferas da evolução!",
+      "authorship": "Luiz",
+      "themeId": "6"
+    },
+    {
+      "id": 3,
+      "date": "2021-06-24",
+      "message": "A paz de coração transborda naquele que encara os problemas com simplicidade, pois o que complica transborda tudo em tempestade e tormenta.    Quanto mais nos instruimos, mais entendemos tudo que acontece em nossa vida e no mundo. O entendimento nos liberta da ignorância e nos coloca na direção do progresso.",
+      "authorship": "Manoel",
+      "themeId": "10"
+    },
+    {
+      "id": 534,
+      "date": "2021-03-25",
+      "message": "Muitos de nós não gostam da solidão porque não entendem que ela não existe. Na verdade nós é que não sabemos observar que nunca estamos sós.",
+      "authorship": "Maria Antonieta",
+      "themeId": "5"
+    },
+    {
+      "id": 756,
+      "date": "2021-03-18",
+      "message": "Nada acontece por acaso, quando episódios em nossa vida assim acontecem, saibam que ali se encontra a providência de Deus. Que usa todas as oportunidades que estão próximas a nós para nos ajudar a evoluir ou permitir nosso reajuste com nossa consciência. Tudo sempre pende para o equilíbrio em nossa jornada, seja encarnados ou não, sempre há alguém a serviço de Deus que nos guia e olha por nós em nosso caminho.",
+      "authorship": "Manoel",
+      "themeId": "85"
+    },
+    {
+      "id": 111,
+      "date": "2021-04-08",
+      "message": "O canto do pássaro trás sensação de paz e conexão com a natureza. No som de belo canto nossas emoções se transformam. Qual é o som que estamos nos conectando diariamente? Maledicências? Injúrias? Ofensas?\n\nQue sons estamos emitindo?\n\nO que aqueles que compartilham nosso convívio diário estão recebendo de nós em forma de vibração sonora?\n\nO som pode curar ou matar!\n\nToda a humanidade ainda precisa pensar mais para falar!",
+      "authorship": "Manoel",
+      "themeId": "556"
+    },
+    {
+      "id": 158,
+      "date": "2021-04-20",
+      "message": "Mesmo aquele que achamos que escolheu caminho diferente de evoluir, ainda assim está evoluindo. Pense apenas que pegou uma rota diferente para o progresso! Mas ele também chegará lá. Cada um a seu tempo.",
+      "authorship": "Manoel",
+      "themeId": "342"
+    },
+    {
+      "id": 662,
+      "date": "2021-04-22",
+      "message": "Todo processo de transição possui extremos que assustam. A transição da água para vapor por exemplo nos ensina muito. A temperatura se eleva ao ponto dela não suportar mais o estado que estava e mudar. Onde ao abandonar o estado antigo ouvimos sonoro alerta da mudança, ou seja, o barulho. Assim está com o mundo em transição, basta observar cada sinal!",
+      "authorship": "Manoel",
+      "themeId": "805"
+    },
+    {
+      "id": 736,
+      "date": "2021-05-06",
+      "message": "A nossa mente é como uma casa que possui sua mobília, assim como nossa mente possui nossa memória. Muitas vezes se faz necessário cuidadosa faxina para manter a casa em boas condições sanitárias, assim também precisa ser feito com nossa mente, removendo dela pensamentos negativos, hábitos destrutivos que comprometem a sanidade de nossa mente, da mesma forma que uma casa sem boa limpeza se torna ambiente favorável ao aparecimento de pragas, assim é com nossa mente que pode se tornar terreno propício ao surgimento de doenças emocionais e psicológicas, que muitas vezes se aprofundam até a alma e podem levar vidas e vidas para se curarem por completo!",
+      "authorship": "Manoel",
+      "themeId": "118"
+    },
+    {
+      "id": 453,
+      "date": "2021-05-11",
+      "message": "Mesmo aquela flor que ainda não desabrochou emite sua luz. Assim também é com nós que podemos contribuir e emitir pequena luz, mas que já ajuda muito o mundo, podemos fazer muitas coisas boas, mesmo não sendo espíritos com evolução completa. Uma pena que muitos usam a justificativa de ainda não terem desabrochado para se manterem na inércia, se soubessem o quanto perdem por agirem assim, não fariam dessa forma!",
+      "authorship": "Manoel",
+      "themeId": "342"
+    },
+    {
+      "id": 484,
+      "date": "2021-06-22",
+      "message": "O que se leva embora de uma existência são as experiências, aprendizados e o resultado de nossos atos. Nem mesmo o corpo que recebemos conseguimos carregar. É importante refletirmos sempre ao iniciar cada dia aqui na terra sobre nosso verdadeiro propósito aqui. Acumular bens materiais ou espirituais? Qual é sua fortuna",
+      "authorship": "Manoel",
+      "themeId": "342"
+    },
+    {
+      "id": 171,
+      "date": "2021-06-24",
+      "message": "A paz de coração transborda naquele que encara os problemas com simplicidade, pois o que complica transforma tudo em tempestade e tormenta. Quanto mais nos instruímos, mais entendemos tudo que acontece em nossa vida e no mundo. O entendimento nos liberta da ignorância e nos coloca na direção do progresso.",
+      "authorship": "Manoel",
+      "themeId": "7"
+    },
+    {
+      "id": 36,
+      "date": "2022-05-05",
+      "message": "Para Deus nós somos como flores que embelezam seu vasto jardim chamado Universo. A cada vida que vivemos nós evoluímos um pouco e nos tornamos uma flor cada vez mais bela, única e raríssima aos Seus olhos. Para isso, devemos aproveitar cada vida em todas as possibilidades de aprender e praticar para com isso evoluirmos. Seja no campo intelectual, quanto no moral.",
+      "authorship": "Manoel",
+      "themeId": "342"
+    },
+    {
+      "id": 335,
+      "date": "2022-04-14",
+      "message": "Mesmo aquele que não tem a roupagem de bela flor em sua aparência, saiba que pode emitir muita luz ao seu redor e contagiar a todos com boas energias. Tudo depende de como está o seu interior, por essa razão devemos estar sempre abertas com nossos pensamentos e emoções. Eles devem estar sempre sintonizados no amor. Esse é o roteiro certeiro para nossa luz interna brilhar e se tornar útil onde quer que estivermos.",
+      "authorship": "Maria Antonieta",
+      "themeId": "11"
+    }
+  ]
+}
