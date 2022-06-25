@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-message-search',
@@ -6,12 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./message-search.component.css']
 })
 export class MessageSearchComponent implements OnInit {
+  @ViewChild('form') form!: NgForm;
+
   sentence!: string;
   author!: string;
   initialDate!: Date;
   finalDate!: Date;
   category!: string[];
-  search!: string;
+  search!: boolean;
   router: any;
 
   constructor() { }

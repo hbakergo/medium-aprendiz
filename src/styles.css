@@ -94,6 +94,13 @@ hr {
 
   color: #640094; /*hbg*/
 }
+/* valid input - Date*/
+.input-field input[type=date].valid {
+  border-bottom: 1px solid #640094;
+  box-shadow: 0 1px 0 0 #640094;
+
+  color: #640094; /*hbg*/
+}
 /* valid textarea */
 .input-field textarea.valid {
   border-bottom: 1px solid #640094;
@@ -110,6 +117,13 @@ hr {
 }
 /* invalid color */
 .input-field input[type=email].invalid {
+  border-bottom: 1px solid red;
+  box-shadow: 0 1px 0 0 red;
+
+  color: red; /*hbg*/
+}
+/* invalid color */
+.input-field input[type=date].invalid {
   border-bottom: 1px solid red;
   box-shadow: 0 1px 0 0 red;
 
@@ -186,6 +200,10 @@ hr {
 
 table > tbody > tr{
   cursor: pointer;
+}
+
+.my-table{
+  width: fit-content;
 }
 
 /**

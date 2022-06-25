@@ -16,19 +16,18 @@
             <b>Tema: {{ theme.name }}</b>
           </span>
             <br/><br/>
-            <table>
+            <table class="my-table">
               <tr>
                 <td><button
                   class="btn waves-effect waves-green my-button-green darken-4"
                   type="submit"
-                  [routerLink]="['/a/novo-tema']"
+                  [routerLink]="['/a/editar-tema']" [queryParams]="{id: this.theme.id }"
                 >
                   Editar tema
                 </button></td>
                 <td><button
                   class="btn waves-effect waves-green red darken-4"
-                  type="submit"
-                  [routerLink]="['/a/novo-tema']"
+                  (click)="onDelete(theme)"
                 >
                   Deletar tema
                 </button></td>
@@ -39,4 +38,3 @@
     </div>
   </div>
 </div>
-

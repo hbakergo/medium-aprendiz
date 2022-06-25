@@ -1,35 +1,32 @@
-import { Component, Input, OnInit } from '@angular/core';
-
-import { Message } from './../model/message';
-import { messages } from '../util/messages';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Message } from '../model/message';
 import { MessageObservableService } from '../services/message-observable.service';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-messages-list',
-  templateUrl: './messages-list.component.html',
-  styleUrls: ['./messages-list.component.css']
+  selector: 'app-adm-message',
+  templateUrl: './adm-message.component.html',
+  styleUrls: ['./adm-message.component.css']
 })
-export class MessagesListComponent implements OnInit {
-  @Input() show!: boolean;
-  @Input() authorShip?: string;
-  @Input() content?: string;
-  @Input() search?: boolean;
+export class AdmMessageComponent implements OnInit {
 
-  //messages = messages;
   messages?: Message[];
 
   messagesResult!: Message[];
   sortBy = 'ZA';
   showFilter = false;
 
+  authorShip?: string;
+  content?: string;
+  search: boolean  = false;
+
   constructor(
     private messageObservableService: MessageObservableService,
     private route: ActivatedRoute,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
-    this.onSortMessages();
 
     this.route.queryParams.subscribe(params => {
       this.authorShip = params['authorShip'];
@@ -46,45 +43,40 @@ export class MessagesListComponent implements OnInit {
         this.authorShip = '';
       }
 
-      //se não foi feito busca, ou seja, usuário clicou no 'Mensagens' ele mostra os 3 últimos
+      //se não foi feito busca, ou seja, usuário clicou no 'Mensagens' ele mostra todos
       if(!this.search){
-
-        this.messageObservableService.getLast3()
+        this.messageObservableService.getAll()
+        .subscribe(
+          (data) => {
+            this.messages = data;
+            this.search = false;
+            this.onSortMessages();
+          },
+          (error) => {
+            alert('ERRO INESPERADO!');
+          }
+        );
+      } else //se foi feito busca e foi informado algo a buscar
+        if(this.search && (this.authorShip || this.content)){
+        this.messageObservableService.getBy(this.content, this.authorShip)
           .subscribe(
             (data) => {
               this.messages = data;
               this.search = false;
+              this.onSortMessages();
             },
             (error) => {
               alert('ERRO INESPERADO!');
             }
           );
-      } else //se foi feito busca e foi informado algo a buscar
-        if(this.search && (this.authorShip || this.content)){
-          this.messageObservableService.getBy(this.content, this.authorShip)
-            .subscribe(
-              (data) => {
-                this.messages = data;
-                this.search = false;
-              },
-              (error) => {
-                alert('ERRO INESPERADO!');
-              }
-            );
-      }else{ //se não informou nada e clicou no buscar ele traz as 3 últimas mensagens
-        alert('Para realizar uma busca, informar o autor e/ou conteúdo da mensagem que deseja! Abaixo serão exibidas todas mensagens do acervo!');
-        this.messageObservableService.getAll()
-          .subscribe(
-            (data) => {
-              this.messages = data;
-              this.search = false;
-            },
-            (error) => {
-              alert('ERRO INESPERADO!');
-            }
-        );
+      } else{
+        this.search = false;
+        this.router.navigate(['a/mensagens']);
       }
+
     })
+
+
   }
 
   /**
@@ -113,5 +105,32 @@ export class MessagesListComponent implements OnInit {
     } else this.sortBy='AZ';
 
     this.onSortMessages();
+  }
+
+  onDelete(message: Message){
+
+    let confirmation = window.confirm(
+      'Você tem certeza que deseja remover a mensagem =>' + message.message
+    );
+
+    /**
+      * caso o usuário não concorda com a deleção ele retorna e não segue na
+      * execução deste método onDelete
+      */
+    if (!confirmation) {
+      return;
+    }
+
+      this.messageObservableService.delete(message)
+      .subscribe(
+        (data) => {
+          alert(`A mensagem <${data[0].message}> deletada com sucesso`);
+        },
+        (error) => {
+          alert('Erro ao deletar!');
+        }
+      );
+      window.location.reload();
+
   }
 }

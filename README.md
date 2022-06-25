@@ -1,3 +1,15 @@
+# medium-aprendiz
+Este projeto foi implementado utilizando os ensinamentos da disciplina de "Frameworks Web" do curso de pós graduação da UTFPR(Universidade Tecnológica Federal do Paraná) - Cornélio Procópio, sob orientação do Prof. Dr. Roni Fabio Banaszewski 
+
+O projeto em questão foi usado como objeto de avaliação da disciplina estudada.
+
+O frontend da aplicação foi desenvolvido com Angular e o backend foi simulado pela implementação de uma API Fake, usando JSON Server.
+
+# Para rodar aplicação
+É preciso usar o arquivo do projeto 'db.json' e no diretório que ele estiver executar o comando "npm run json:server:routes"
+
+É preciso também ter o JSON Server instalado no computador local, consultando a documentação é possível obter informações como utilizar e instalar em => https://www.npmjs.com/package/json-server
+
 # Protótipo
 https://www.figma.com/file/T7DusX9ExSX1S9RbeZyeDW/medium-aprendiz?node-id=5%3A42
 
@@ -20,4 +32,4 @@ https://www.figma.com/file/T7DusX9ExSX1S9RbeZyeDW/medium-aprendiz?node-id=5%3A42
 - [x] Apresentar uma lista de dados com a diretiva estrutural ngFor.
 - [x] Usar a diretiva ngIf
 - [x] Formatar a apresentação de dados com Pipes.
-- [ ] Build e deploy da aplicação.
+- [x] Build e deploy da aplicação.

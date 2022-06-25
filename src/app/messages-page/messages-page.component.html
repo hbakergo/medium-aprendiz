@@ -1,11 +1,26 @@
 <div class="container">
-  <p *ngIf="authorShip">
-    Parâmetros recebidos quando clica no botão buscar da página home<br/>
-    <b> autor={{ authorShip }} , conteúdo da mensagem={{ content }}</b><br/>
-    <br/>
-  </p>
   <br/>
+
+
   <h5>Mensagens:</h5>
+
+  <app-message-search></app-message-search>
+
+  <div class="row">
+    <div class="col s10 l11 m5">
+      <b>IMPORTANTE: </b><br/>
+      -Para buscar alguma mensagem, informe acima o que deseja buscar e clique em
+      "BUSCAR MENSAGENS"<br/>
+      -Se clicar no "BUSCAR MENSAGENS" sem preencher o campo
+      "Contendo qual texto?" e/ou "Qual autor?" serão trazidas todas as mensagens
+      do acervo.
+      <br/>
+      -Caso tenha entrado diretamente nessa página de mensagens, serão exibidas as 3 mensagens mais recentes.
+      <br/>
+      <br/>
+      <br/>
+    </div>
+  </div>
 
   <app-messages-list
     [show]="showTitleLastMessages"
